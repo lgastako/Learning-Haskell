@@ -1,11 +1,5 @@
 module Main where
 -- hackerrank problem
-f :: Int -> [Int] -> [Int]
-f n arr = [x | x <- arr, x < n]
+main = interact $ unlines . map show . f . lines
 
-main = do 
-    n <- readLn :: IO Int 
-    inputdata <- getContents 
-    let 
-        numbers = map read (lines inputdata) :: [Int] 
-    putStrLn . unlines $ (map show . f n) numbers
+f (n:xs) = filter (<n) xs
